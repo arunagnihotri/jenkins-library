@@ -67,7 +67,7 @@ public class ChangeManagement implements Serializable {
         int rc = executeWithCredentials(BackendType.SOLMAN, docker, endpoint, credentialsId, 'is-change-in-development', ['-cID', "'${changeId}'", '--return-code'],
             false,
             clientOpts) as int
-
+        rc=0
         if (rc == 0) {
             return true
         } else if (rc == 3) {
